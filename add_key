@@ -1,0 +1,18 @@
+#!/bin/sh
+
+DEFAULT_KEYFILE=~/.ssh/id_rsa.pub
+
+echo "Which key are we uploading? [$DEFAULT_KEYFILE]"
+read keyfile
+
+if [ -z "$keyfile" ]
+then
+   keyfile="$DEFAULT_KEYFILE"
+fi
+
+echo "using $keyfile"
+
+echo "Enter the user@server combo you are uploading to? [user@server]"
+read server
+
+cat $keyfile | ssh $server "touch ~/.ssh/authorized_keys && cat - >> ~/.ssh/authorized_keys"
