@@ -1,0 +1,2 @@
+#!/bin/sh
+grep -rnI --color --exclude=\*.svn\* --exclude=\*.log\* $@

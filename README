@@ -1,1 +1,19 @@
 Simply a set of (what I hope are) portable shell scripts I find myself using at varying degrees of frequency.
+
+* rgrep
+
+A wrapper for grep that caters to recursive searches through a rails project.  It omits all .svn directories and .log files from it's search tree.  Also colorizes output, and includes the line number.  Other grep options can be passed just as normal.
+
+e.g. $><code>rgrep -B5 "def some_function" app/*</code>
+
+* psgrep
+
+Simply a wrapper for ps aux | grep ____.  I do this all of the time.
+
+e.g. $><code>psgrep ruby</code>
+
+* add_key
+
+A simple script to upload your public key to a remote server.  Allows us to accomplish this by only entering our password once!
+
+e.g. $><code>add_key myuser@remote_server /path/to/keyfile</code>
