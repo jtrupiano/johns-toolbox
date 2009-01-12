@@ -15,4 +15,4 @@ echo "using $keyfile"
 echo "Enter the user@server combo you are uploading to? [user@server]"
 read server
 
-cat $keyfile | ssh $server "touch ~/.ssh/authorized_keys && cat - >> ~/.ssh/authorized_keys"
+cat $keyfile | ssh $server "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && cat - >> ~/.ssh/authorized_keys"
