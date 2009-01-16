@@ -1,6 +1,6 @@
-##########################
-# Tasks to help with svn #
-##########################
+####################################################
+# Tasks to help with svn in Ruby on Rails projects #
+####################################################
 require 'readline'
 
 namespace :svn do
