@@ -1,2 +1,2 @@
 #!/bin/sh
-grep -rnI --color --exclude=\*.svn\* --exclude=\*.log\* $@
+grep -rnI --color --exclude-dir=.svn --exclude=*.log $@

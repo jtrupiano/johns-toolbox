@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require 'readline'
+
+files = `svn st | grep ^? | awk '{print $2}'`.split
+if files.size > 0
+  # set ignores
+  count = files.size
+  n = 1
+  # group files by directory
+  groups = {}
+  files.each do |f|
+    dir, file = File.split(f)
+    if groups.include? dir
+      groups[dir] << file
+    else
+      groups[dir] = [file]
+    end
+  end
+  quit = false
+  groups.each_pair do |dir, fs|
+    for file in fs
+      puts "[#{n} of #{count}] Ignore #{File.directory?(File.join(dir, fs)) ? "directory" : "file"} #{File.join(dir, file)}? (y/N/q)"
+      line = Readline::readline '> '
+      if line.downcase.strip == 'y'
+        puts "IGNORING"
+        `svn propset svn:ignore #{file} #{dir}`
+      elsif line.downcase.strip == 'q'
+        quit = true
+        break
+      end
+      n += 1
+      puts
+    end
+    break if quit
+  end
+  # Add all non-ignored files.
+  `svn st | grep ^? | awk '{print $2}'`.split.each do |file|
+     puts "adding #{file}"
+     `svn add #{file}`
+  end
+
+else
+  $stdout.write "No files to ignore\n"; $stdout.flush
+end
+
+
