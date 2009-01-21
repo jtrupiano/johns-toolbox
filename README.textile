@@ -20,3 +20,15 @@ h2. add_key
 A simple script to upload your public key to a remote server.  Allows us to accomplish this by only entering our password once!
 
 $><code>add_key myuser@remote_server /path/to/keyfile</code>
+
+h2. gen-autocomplete.sh
+
+Extremely helpful script for caching bash autocompletion for ruby on rails related commands.  More explicit details in the script itself.  Commands to be added to your .profile scripts are described in the comments.
+
+h2. svn.rake
+
+Tasks to help with svn in Ruby on Rails projects, including adding all uncommitted files, interactive svn:ignore specification, and full-blown svn/story-helper workflow task (to be run just before committing).
+
+h2. svnadd
+
+Shell script to add all ? files in a subversion checkout.  Extremely useful when you keep your svn:ignore settings up to date.
