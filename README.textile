@@ -33,6 +33,7 @@ h2. git-stats
 
 From within a git repository, output total and percentage responsibility for insertions, deletions, files and commits broken down by author.  This script is adapted from a blog post by Paul Ostazeski called "Calculating authorship with git and awk":http://www.intridea.com/posts/awk-tricks.  A sample output can be seen below (run against this repository 3/7/09 at about 10:27PM EST).
 
+<pre>
 john-mbp:johns-toolbox john$ ./git-stats 
 Adam:
   insertions:      212 (73%)
@@ -44,7 +45,7 @@ John:
   deletions:        22 (85%)
   files:            11 (69%)
   commits:           6 (60%)
-
+</pre>
 
 h2. svn.rake
 
