@@ -3,27 +3,48 @@ h1. John's Toolbox
 This is simply a repository of (what I hope are) portable shell scripts I find myself using at varying degrees of frequency.  I find that often you can make the best productivity gains a step below your actual programming language, more specifically within
 the shell itself.
 
-h2. rgrep
-
-A wrapper for grep that caters to recursive searches through a rails project.  It omits all .svn directories and .log files from it's search tree.  Also colorizes output, and includes the line number.  Other grep options can be passed just as normal.
-
-$><code>rgrep -B5 "def some_function" app/*</code>
-
-h2. psgrep
-
-Simply a wrapper for ps aux | grep ____.  I do this all of the time.
-
-$><code>psgrep ruby</code>
-
 h2. add_key
 
-A simple script to upload your public key to a remote server.  Allows us to accomplish this by only entering our password once!
+A simple prompt-driven script to upload your public key to a remote server.  Allows us to accomplish this by only entering our password once.
 
 $><code>add_key myuser@remote_server /path/to/keyfile</code>
 
 h2. gen-autocomplete.sh
 
 Extremely helpful script for caching bash autocompletion for ruby on rails related commands.  More explicit details in the script itself.  Commands to be added to your .profile scripts are described in the comments.
+
+h2. rgrep <pattern> <path_to_search>
+
+A wrapper for grep that caters to recursive searches through a rails project.  It omits all .svn directories and .log files from it's search tree.  Also colorizes output, and includes the line number.  Other grep options can be passed just as normal.
+
+$><code>rgrep -B5 "def some_function" app/*</code>
+
+h2. psgrep <process_name>
+
+Simply a wrapper for ps aux | grep ____.  I do this all of the time.
+
+$><code>psgrep ruby</code>
+
+h2. touchx <file>
+
+Create an executable file.
+
+h2. git-stats
+
+From within a git repository, output total and percentage responsibility for insertions, deletions, files and commits broken down by author.  This script is adapted from a blog post by Paul Ostazeski called "Calculating authorship with git and awk":http://www.intridea.com/posts/awk-tricks.  A sample output can be seen below (run against this repository 3/7/09 at about 10:27PM EST).
+
+john-mbp:johns-toolbox john$ ./git-stats 
+Adam:
+  insertions:      212 (73%)
+  deletions:         4 (15%)
+  files:             5 (31%)
+  commits:           4 (40%)
+John:
+  insertions:       79 (27%)
+  deletions:        22 (85%)
+  files:            11 (69%)
+  commits:           6 (60%)
+
 
 h2. svn.rake
 
