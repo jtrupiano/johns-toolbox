@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "$1:\n  adapter: mysql\n  database: $2\n  username: root" > config/$1/database.yml
