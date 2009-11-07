@@ -1,0 +1,1 @@
+rm -f current && ln -s $1 current

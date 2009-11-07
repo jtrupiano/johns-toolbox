@@ -54,3 +54,20 @@ Tasks to help with svn in Ruby on Rails projects, including adding all uncommitt
 h2. svnadd
 
 Shell script to add all ? files in a subversion checkout.  Extremely useful when you keep your svn:ignore settings up to date.
+
+h2. lncur
+
+Little helper to change a 'current' symlink in the project root when you have 
+checked out multiple branches as siblings.
+
+    john-mbp:TimeTracker john$ ls -l
+      total 2864
+      lrwxr-xr-x   1 john  staff        5 Nov  7 17:54 current -> trunk
+      drwxr-xr-x  18 john  staff      612 Oct 24 16:53 task_finder
+      drwxr-xr-x  18 john  staff      612 Nov  7 17:12 trunk
+    john-mbp:TimeTracker john$ lncur task_finder
+    john-mbp:TimeTracker john$ ls -l
+      total 2864
+      lrwxr-xr-x   1 john  staff        5 Nov  7 17:54 current -> task_finder
+      drwxr-xr-x  18 john  staff      612 Oct 24 16:53 task_finder
+      drwxr-xr-x  18 john  staff      612 Nov  7 17:12 trunk
